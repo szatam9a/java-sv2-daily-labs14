@@ -22,7 +22,7 @@ public class StreetView {
                 putAddressInCorrectList(street, number);
             }
         } catch (IOException io) {
-            System.out.println("i ate in exception");
+            System.out.println("i ate an exception");
         }
         return streetView;
     }
