@@ -10,20 +10,21 @@ public class PairFinder {
 
     public int findPairs(int[] arr) {
         allPairs = 0;
-        Map<Integer, Integer> pairs = new TreeMap<>();
+        Map<Integer, Boolean> pairs = new TreeMap<>();
         Arrays.stream(arr).forEach(e -> countME(e, pairs));
         return allPairs;
     }
 
-    private void countME(Integer theNumber, Map<Integer, Integer> map) {
+    private void countME(Integer theNumber, Map<Integer, Boolean> map) {
         if (map.containsKey(theNumber)) {
-            if (map.get(theNumber).equals(1)) {
-                map.replace(theNumber, 0);
+            if (map.get(theNumber).equals(true)) {
+                map.replace(theNumber, false);
                 allPairs++;
             } else
-                map.replace(theNumber, 1);
+                map.replace(theNumber, true);
         } else {
-            map.put(theNumber, 1);
+            map.put(theNumber, true
+            );
         }
     }
 
