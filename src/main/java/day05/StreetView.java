@@ -19,7 +19,7 @@ public class StreetView {
                 int length = line.length();
                 street = line.substring(0, length - 2);
                 number = Integer.parseInt(line.substring(length - 1));
-                putAddressInCorrectList(street, number);
+                putAddressInCorrectPosition(street, number);
             }
         } catch (IOException io) {
             System.out.println("i ate an exception");
@@ -27,8 +27,8 @@ public class StreetView {
         return streetView;
     }
 
-    private void putAddressInCorrectList(String street, int number) {
-        validateTheStreetIn(street);
+    private void putAddressInCorrectPosition(String street, int number) {
+        validateTheStreetInTheMap(street);
         if (number % 2 == 0) {
             int streetNumber = countEven(street);
             streetView.get(street).add(streetNumber);
@@ -48,7 +48,7 @@ public class StreetView {
         return (int) number * 2 + 1;
     }
 
-    private void validateTheStreetIn(String street) {
+    private void validateTheStreetInTheMap(String street) {
         if (!streetView.containsKey(street)) {
             streetView.put(street, new LinkedList<>());
         }
